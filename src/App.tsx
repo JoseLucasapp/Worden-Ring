@@ -15,6 +15,8 @@ function App() {
     Array.from({ length: MAX_ATTEMPTS }, () => false)
   );
   const [gameOver, setGameOver] = useState(false);
+  const [gameEnd, setGameEnd] = useState(false)
+  const [result, setResult] = useState(false);
 
   const cols = (selectedWord ?? "").length;
   const inputsRef = useRef<Array<Array<HTMLInputElement | null>>>([]);
@@ -92,8 +94,9 @@ function App() {
     setLockedRows(prev => { const copy = [...prev]; copy[row] = true; return copy; });
 
     if (judgedCompact.every(s => s === "correct")) {
-      alert("Você acertou!");
+      setResult(true)
       setGameOver(true);
+      setGameEnd(true);
       return;
     }
 
@@ -103,7 +106,16 @@ function App() {
       if (first !== null) inputsRef.current[row + 1][first]?.focus();
     } else {
       setGameOver(true);
+      setGameEnd(true);
     }
+  }
+
+  const handlePlayAgain = () => {
+    window.location.reload();
+  }
+
+  const handleCloseModal = () => {
+    setGameEnd(false);
   }
 
 
@@ -169,15 +181,15 @@ function App() {
     <>
       <section className='worden-ring-main'>
         <section className='top'>
-          <button className="top-help">?</button>
+          <button className="top-help" onClick={() => setHelpOpen(true)}>?</button>
           <p className="top-title">Worden Ring</p>
-          <button className="top-config">⚙️</button>
+          <button className="top-about" onClick={() => setOptionsOpen(true)}>!</button>
         </section>
         <section className='content'>
 
           {Array.from({ length: MAX_ATTEMPTS }).map((_, row) => (
             <div className='content-chance' key={row}>
-              {Array.from(selectedWord ?? "").map((ch, col) => (
+              {Array.from(selectedWord ?? "").map((_, col) => (
                 <input
                   key={col}
                   maxLength={1}
@@ -195,21 +207,97 @@ function App() {
             </div>
           ))}
         </section>
+
+        {
+          helpOpen && (
+            <div className="overflow-canva">
+              <div className='modal-container'>
+                <p className="close-modal" onClick={() => setHelpOpen(false)}>X</p>
+
+                <div className="about-game">
+                  <h2>Help</h2>
+
+                  <p>Uncover the hidden word from the world of <strong>Elden Ring</strong>: bosses, items, weapons, or places.</p>
+
+                  <ul>
+                    <li>🟩 Correct letter & spot</li>
+                    <li>🟨 Letter exists, wrong place</li>
+                    <li>⬛ Letter not in word</li>
+                  </ul>
+
+                  <p>Beware: <br /><strong style={{ fontSize: "32px" }}>␣</strong> = space inside the word.
+                    <br />The apostrophe <strong>'</strong> is auto-filled for you.
+                    (Yes, there are apostrophes, and yes, this is harder than <strong>Elden Ring</strong>!)</p>
+
+                  <p>This trial is said to be harder than Elden Ring itself.
+                    To prevail, you must wield patience, wit, and more than <strong>99 Intelligence</strong>.</p>
+
+                  <p>May your guesses strike true, and may Grace guide your words.</p>
+
+                </div>
+              </div>
+            </div>
+          )
+        }
+
+        {
+          optionsOpen && (
+
+            <div className="overflow-canva">
+              <div className='modal-container'>
+                <p className="close-modal" onClick={() => setOptionsOpen(false)}>X</p>
+
+                <div className="about-game">
+                  <h2>Greetings, Tarnished.</h2>
+
+                  <p><strong>Worden Ring</strong> was forged in September 2025 by <a href="https://www.instagram.com/jlucasgf/">José Lucas</a> a devoted wanderer of both <strong>Elden Ring</strong> and <a href='https://term.ooo/'>Termo</a>.
+                    A twisted reflection of Termo, reborn within the Lands Between.</p>
+
+                  <p>This trial surpasses even the mightiest of foes.
+                    To endure, one must wield knowledge beyond mortal bounds, more than <strong>99 Intelligence</strong>, shattering the very limits set by Elden Ring itself.</p>
+
+                  <p>Every word is drawn from the deep lore of the <a href='https://eldenring.fanapis.com/'>Elden Ring Fans API</a>: the names of bosses, relics, weapons, and legends scattered throughout the realm.</p>
+
+                  <p>No personal data is taken. No cookies. No tracking.
+                    Only your will… and your guesses… shall determine your fate.</p>
+
+                </div>
+              </div>
+            </div>
+          )
+        }
+
+        {
+          gameEnd && (
+            <div className="overflow-canva">
+              <div className='modal-container'>
+                <p className="close-modal" onClick={handleCloseModal}>X</p>
+                <div className="game-over">
+                  {
+                    result ? (
+                      <p style={{ color: "#f9c043" }}>You are the new Worden lord</p>
+                    ) : (
+                      <p>YOU DIED</p>
+                    )
+                  }
+
+                  <div>
+                    <h2>{selectedWord}</h2>
+                    <img src={answer.image} alt="" />
+                    <p>{answer.description}</p>
+                  </div>
+
+                  <button onClick={handlePlayAgain}>Play Again</button>
+                </div>
+
+              </div>
+            </div>
+
+          )
+        }
+
+        <p className='version'>V 0.0.1</p>
       </section>
-
-      {
-        helpOpen && (
-          <div className='help-container'></div>
-        )
-      }
-
-      {
-        optionsOpen && (
-          <div className='options-container'></div>
-        )
-      }
-
-
     </>
   );
 

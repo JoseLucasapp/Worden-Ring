@@ -5,6 +5,9 @@
   text-align: center;
 }
 
+button {
+  outline: none;
+}
 
 .card {
   padding: 2em;
@@ -25,6 +28,7 @@
   flex-direction: column;
   align-items: center;
   color: #f9c043;
+  z-index: 1;
 }
 
 .worden-ring-main .top {
@@ -33,6 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .worden-ring-main .top .top-help,
@@ -58,6 +63,7 @@
   align-items: center;
   padding-bottom: 5%;
   overflow-x: hidden;
+  z-index: 1;
 }
 
 .worden-ring-main .content .content-chance {
@@ -86,5 +92,137 @@
 }
 
 .absent {
+  background-color: #444444;
   opacity: 0.2;
+}
+
+.overflow-canva {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.modal-container {
+  width: 30%;
+  height: 80vh;
+  background-color: #2e2e2e;
+  border-radius: 10px;
+  color: #9a9a9a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-container .close-modal {
+  align-self: flex-end;
+  position: absolute;
+  margin-top: -35%;
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 1%;
+  cursor: pointer;
+}
+
+.modal-container .close-modal:hover {
+  color: #f9c043;
+}
+
+
+.modal-container .game-over,
+.modal-container .about-game {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container .game-over p:nth-child(1) {
+  width: 100%;
+  font-size: 28px;
+  color: red;
+  background-image: linear-gradient(to right,
+      transparent 0%,
+      transparent 2%,
+      #000000 60%,
+      transparent 100%);
+
+}
+
+.modal-container .game-over p:nth-child(1) .won-title {
+  color: #f9c043;
+}
+
+.modal-container .game-over div {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container .game-over div h2 {
+  font-size: 26px;
+}
+
+.modal-container .game-over div img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  background-color: #6b6b6b;
+}
+
+.modal-container .game-over button {
+  background-color: #040200;
+  color: #d9d9d9;
+  font-size: 22px;
+  width: 50%;
+  height: 50px;
+}
+
+.modal-container .game-over button:hover {
+  background-color: #040200;
+  color: #ffcc4d;
+}
+
+.modal-container .about-game {
+  width: 90%;
+}
+
+.modal-container .about-game h2 {
+  color: #ffcc4d;
+  font-size: 32px;
+}
+
+.modal-container .about-game p {
+  font-size: 20px;
+}
+
+.modal-container .about-game p strong {
+  color: #d9d9d9;
+}
+
+.modal-container .about-game p a {
+  color: #f9c043;
+}
+
+.modal-container .about-game ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-container .about-game ul li {
+  font-size: 20px;
 }
