@@ -250,8 +250,8 @@ function App() {
                 <div className="about-game">
                   <h2>Greetings, Tarnished.</h2>
 
-                  <p><strong>Worden Ring</strong> was forged in September 2025 by <a href="https://www.instagram.com/jlucasgf/">José Lucas</a> a devoted wanderer of both <strong>Elden Ring</strong> and <a href='https://term.ooo/'>Termo</a>.
-                    A twisted reflection of Termo, reborn within the Lands Between.</p>
+                  <p><strong>Worden Ring</strong> was forged in September 2025 by <a href="https://www.instagram.com/jlucasgf/">José Lucas</a> a devoted wanderer of both <strong>Elden Ring</strong> and <a href='https://www.nytimes.com/games/wordle/index.html'>Wordle</a>.
+                    A twisted reflection of Wordle, reborn within the Lands Between.</p>
 
                   <p>This trial surpasses even the mightiest of foes.
                     To endure, one must wield knowledge beyond mortal bounds, more than <strong>99 Intelligence</strong>, shattering the very limits set by Elden Ring itself.</p>

@@ -1,69 +1,48 @@
-# React + TypeScript + Vite
+# 🕹️ Worden Ring
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> *“A twisted reflection of Wordle, reborn in the Lands Between.”*
 
-Currently, two official plugins are available:
+<p align="center"><img src="./public/logo.png" width="300"></p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## [You can play here](https://worden-ring-c4by8opim-jose-lucas-projects-b3dfaea8.vercel.app/)
 
-## Expanding the ESLint configuration
+## 📖 About the Project
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Worden Ring** is a word game inspired by the classic [Wordle](https://www.nytimes.com/games/wordle/index.html), but set in the dark and challenging universe of **Elden Ring**.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Players must guess hidden words, names of bosses, locations, weapons, spells, and secrets of the Lands Between, all drawn directly from the [**Elden Ring Fans API**](https://eldenring.fanapis.com/).
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+⚔️ Harder than Elden Ring itself: you’ll need more than **99 Intelligence**, beyond the game’s very limit.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ✨ Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* 🎮 Wordle-inspired gameplay
+* 🌍 Words sourced from the [**Elden Ring Fans API**](https://eldenring.fanapis.com/)
+* 🟩 Visual feedback with colors:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  * 🟩 Green → Correct letter, correct position
+  * 🟨 Yellow → Correct letter, wrong position
+  * ⬛ Gray → Incorrect letter
+* 🔠 Support for spaces and apostrophes (`'`) — apostrophes are **auto-filled**
+
+## 🖼️ Screenshots
+
+<p align="center"><img src="./public/screenshot.png" width="100%"></p>
+
+<p align="center"><img src="./public/gif.gif" width="100%"></p>
+
+## 📜 License
+
+This project is a **fan game**, created for fun and with no commercial intent.
+Elden Ring is the property of **FromSoftware** and **Bandai Namco**.
+
+Licensed under the **MIT License**.
+
+
+## 👤 Author
+
+Made with ❤️ by **José Lucas**
+
+* 📧 [jlgf.profissional@gmail.com](mailto:jlgf.profissional@gmail.com)
+* 🐙 [GitHub](https://github.com/joselucasapp)
