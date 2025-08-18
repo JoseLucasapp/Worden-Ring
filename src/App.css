@@ -80,6 +80,65 @@ button {
   font-weight: 500;
 }
 
+.top-title {
+  position: relative;
+  display: inline-block;
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: clamp(40px, 8vw, 120px);
+  line-height: 1;
+  background: url('https://www.transparenttextures.com/patterns/rocky-wall.png'),
+    linear-gradient(135deg, #d4af37 0%, #8b6b2d 40%, #3e2f1c 100%);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  -webkit-text-stroke: 2px #2c261b;
+  text-shadow:
+    0 1px 0 #000,
+    0 0 8px rgba(210, 190, 120, .35),
+    0 0 18px rgba(210, 190, 120, .22);
+
+  filter: drop-shadow(0 2px 10px rgba(210, 190, 120, .15));
+}
+
+.top-title::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  background-size: cover;
+  mix-blend-mode: multiply;
+  opacity: .28;
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+}
+
+.top-title::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .15), rgba(0, 0, 0, .35));
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(.6px);
+  opacity: .45;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .top-title {
+    filter: drop-shadow(0 2px 12px rgba(210, 190, 120, .22));
+  }
+}
+
+
 .worden-ring-main .content {
   width: 100vw;
   height: auto;
