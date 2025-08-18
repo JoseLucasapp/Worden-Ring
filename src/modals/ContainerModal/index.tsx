@@ -44,6 +44,8 @@ const ContainerModal = ({ handleCloseModal, handlePlayAgain, result, selectedWor
                             <p>No personal data is taken. No cookies. No tracking.
                                 Only your will… and your guesses… shall determine your fate.</p>
 
+                            <p style={{ fontSize: "14px" }}>V 0.0.3</p>
+
                         </div>
                     )
                 }

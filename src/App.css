@@ -1,8 +1,9 @@
 #root {
-  max-width: 1280px;
+  min-width: 100vw;
   margin: 0;
   padding: 0;
   text-align: center;
+  background-color: #080808;
 }
 
 button {
@@ -24,7 +25,7 @@ button {
   overflow-x: hidden;
   min-height: 100vh;
   display: flex;
-  background-color: #040200;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   color: #f9c043;
@@ -41,14 +42,38 @@ button {
 }
 
 .worden-ring-main .top .top-help,
-.worden-ring-main .top .top-config {
+.worden-ring-main .top .top-about {
   width: 2vw;
   height: 50%;
   align-items: center;
   justify-content: center;
   display: flex;
   font-size: 15px;
+  font-family: "Agmena Pro Book", serif;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  border: 1px solid #999070;
+  background-color: rgba(20, 20, 20, 0.9);
+
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8) inset,
+    0 0 12px 4px rgba(0, 0, 0, 0.7);
+
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
 }
+
+.worden-ring-main .top .top-help:hover,
+.worden-ring-main .top .top-about:hover,
+.worden-ring-main .top .top-help:focus,
+.worden-ring-main .top .top-about:focus {
+  border-color: #d1d0a5;
+  color: #f8f7e8;
+
+  box-shadow: 0 0 15px 2px rgba(209, 208, 165, 0.7),
+    0 0 10px 4px rgba(209, 208, 165, 0.4) inset;
+}
+
 
 .worden-ring-main .top .top-title {
   font-size: 32px;
@@ -77,24 +102,45 @@ button {
   margin-left: 5px;
   text-align: center;
   font-size: 30px;
-  font-family: "Agmena Pro Book";
+  font-family: "Agmena Pro Book", serif;
   color: #ffffff;
   text-transform: uppercase;
   margin-top: 10px;
+  cursor: pointer;
+
+  border: 1px solid #999070;
+  background-color: rgba(20, 20, 20, 0.9);
+
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.8) inset,
+    0 0 15px 5px rgba(0, 0, 0, 0.7);
+
+  text-decoration: none;
+  caret-color: transparent;
+  outline: none;
+  transition: all 0.2s ease-in-out;
 }
 
-.correct {
+.worden-ring-main .content .content-chance .words-square:focus,
+.worden-ring-main .content .content-chance .words-square:hover {
+  border-color: #d1d0a5;
+  box-shadow: 0 0 15px 2px rgba(209, 208, 165, 0.7),
+    0 0 10px 4px rgba(209, 208, 165, 0.4) inset;
+  color: #f8f7e8;
+}
+
+.worden-ring-main .content .content-chance .words-square.correct {
   background-color: #378661;
 }
 
-.present {
+.worden-ring-main .content .content-chance .words-square.present {
   background-color: #f9c043;
 }
 
-.absent {
+.worden-ring-main .content .content-chance .words-square.absent {
   background-color: #444444;
-  opacity: 0.2;
+  opacity: .2;
 }
+
 
 .content-chance {
   perspective: 800px;
@@ -106,16 +152,23 @@ button {
 }
 
 .flip {
-  animation: wr-flip 1s ease-in-out;
+  animation: wr-flip 600ms ease-in-out;
 }
 
 @keyframes wr-flip {
-  from {
+  0% {
     transform: rotateX(0deg);
   }
 
-  to {
-    transform: rotateX(360deg);
+  49% {
+    transform: rotateX(90deg);
   }
 
+  51% {
+    transform: rotateX(90deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
 }

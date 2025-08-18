@@ -37,6 +37,11 @@ button {
   transition: border-color 0.25s;
 }
 
+input:focus {
+  outline: none;
+  border: 1px solid white;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

@@ -400,8 +400,6 @@ function App() {
             isGameOver={gameEnd}
           />
         )}
-
-        <p className='version'>V 0.0.2</p>
       </section>
     </>
   );
