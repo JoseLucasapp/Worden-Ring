@@ -32,7 +32,7 @@ const KeyboardComponent = ({
                             <button
                                 type="button"
                                 key={k}
-                                className="key elden-btn"
+                                className="key worden-btn"
                                 data-state={state}
                                 data-action={isAction ? "true" : "false"}
                                 disabled={disabled}
