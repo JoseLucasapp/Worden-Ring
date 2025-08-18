@@ -84,14 +84,38 @@ button {
 }
 
 .correct {
-  background-color: green;
+  background-color: #378661;
 }
 
 .present {
-  background-color: yellow;
+  background-color: #f9c043;
 }
 
 .absent {
   background-color: #444444;
   opacity: 0.2;
+}
+
+.content-chance {
+  perspective: 800px;
+}
+
+.words-square {
+  transform-style: preserve-3d;
+  transition: background-color .2s ease, border-color .2s ease, opacity .2s ease;
+}
+
+.flip {
+  animation: wr-flip 1s ease-in-out;
+}
+
+@keyframes wr-flip {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(360deg);
+  }
+
 }
