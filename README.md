@@ -4,7 +4,7 @@
 
 <p align="center"><img src="./public/logo.png" width="300"></p>
 
-## [You can play here](https://worden-ring-c4by8opim-jose-lucas-projects-b3dfaea8.vercel.app/)
+## [You can play here](https://worden-ring.vercel.app)
 
 ## 📖 About the Project
 
