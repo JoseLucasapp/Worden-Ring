@@ -33,7 +33,7 @@ const ContainerModal = ({ handleCloseModal, handlePlayAgain, result, selectedWor
                         <div className="about-game">
                             <h2>Greetings, Tarnished.</h2>
 
-                            <p><strong>Worden Ring</strong> was forged in September 2025 by <a href="https://www.instagram.com/jlucasgf/">José Lucas</a> a devoted wanderer of both <strong>Elden Ring</strong> and <a href='https://www.nytimes.com/games/wordle/index.html'>Wordle</a>.
+                            <p><strong>Worden Ring</strong> was forged in August 2025 by <a href="https://www.instagram.com/jlucasgf/">José Lucas</a> a devoted wanderer of both <strong>Elden Ring</strong> and <a href='https://www.nytimes.com/games/wordle/index.html'>Wordle</a>.
                                 A twisted reflection of Wordle, reborn within the Lands Between.</p>
 
                             <p>This trial surpasses even the mightiest of foes.
