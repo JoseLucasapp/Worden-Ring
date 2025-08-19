@@ -393,6 +393,10 @@ function App() {
               ))}
             </div>
 
+            <div className="chances-count">
+              <p><span>{currentRow + 1}</span>/ <span>{MAX_ATTEMPTS}</span></p>
+            </div>
+
             <div className="keyboard-wrap">
               <KeyboardComponent
                 onChar={(ch) => insertChar(ch)}
@@ -404,9 +408,7 @@ function App() {
             </div>
           </section>
 
-          <div className="chances-count">
-            <p><span>{currentRow + 1}</span>/ <span>{MAX_ATTEMPTS}</span></p>
-          </div>
+
 
         </section>
 

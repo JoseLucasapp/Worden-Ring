@@ -352,3 +352,23 @@ button {
 .chances-count p span:nth-child(2) {
   color: red;
 }
+
+
+@media screen and (max-width: 928px) {
+  .worden-ring-main .top {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .keyboard-wrap {
+    margin: 0;
+  }
+
+  .chances-count {
+    position: unset;
+    margin: 0;
+    padding: 0;
+    margin-top: 5%;
+    margin-bottom: 1%;
+  }
+}
