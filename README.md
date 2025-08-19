@@ -28,9 +28,9 @@ Players must guess hidden words, names of bosses, locations, weapons, spells, an
 
 ## 🖼️ Screenshots
 
-<p align="center"><img src="./public/screenshot.png" width="100%"></p>
+<p align="center"><img src="./public/screenshot1.png" width="100%"></p>
 
-<p align="center"><img src="./public/gif.gif" width="100%"></p>
+<p align="center"><img src="./public/screenshot2.png" width="100%"></p>
 
 ## 📜 License
 
