@@ -21,7 +21,6 @@ function App() {
   const [result, setResult] = useState(false);
   const [cursorCol, setCursorCol] = useState<number | null>(null);
 
-
   const cols = (selectedWord ?? "").length;
   const inputsRef = useRef<Array<Array<HTMLInputElement | null>>>([]);
 
@@ -174,6 +173,13 @@ function App() {
         setCurrentRow(row + 1);
         const first = firstEditableCol();
         if (first !== null) inputsRef.current[row + 1][first]?.focus();
+
+        const boardEl = document.getElementById("board");
+        if (boardEl) {
+          requestAnimationFrame(() => {
+            boardEl.scrollTop = boardEl.scrollHeight;
+          });
+        }
       } else {
         setGameOver(true);
         setGameEnd(true);
@@ -350,36 +356,58 @@ function App() {
         </section>
 
         <section className='content'>
-          {Array.from({ length: MAX_ATTEMPTS }).map((_, row) => (
-            <div className='content-chance' key={row}>
-              {Array.from(selectedWord ?? "").map((_, col) => (
-                <input
-                  key={col}
-                  maxLength={1}
-                  className="words-square"
-                  disabled={isSpace(col) || isLine(col) || row !== currentRow || lockedRows[row] || gameOver}
-                  placeholder={isSpace(col) ? "␣" : isLine(col) ? "'" : ""}
-                  ref={(el) => {
-                    if (!inputsRef.current[row]) inputsRef.current[row] = Array(cols).fill(null);
-                    inputsRef.current[row][col] = el;
+          <section className="stage">
+            <div className="board" id="board">
+              {Array.from({ length: MAX_ATTEMPTS }).map((_, row) => (
+                <div
+                  className="content-chance"
+                  key={row}
+                  style={{
+                    display:
+                      row === currentRow || lockedRows[row] ? "flex" : "none",
                   }}
-                  onFocus={() => setCursorCol(col)}
-                  onChange={(e) => handleChange(e, row, col)}
-                  onKeyDown={(e) => handleKeyDown(e, row, col)}
-                />
+                >
+                  {Array.from(selectedWord ?? "").map((_, col) => (
+                    <input
+                      key={col}
+                      maxLength={1}
+                      className="words-square"
+                      disabled={
+                        isSpace(col) ||
+                        isLine(col) ||
+                        row !== currentRow ||
+                        lockedRows[row] ||
+                        gameOver
+                      }
+                      placeholder={isSpace(col) ? "␣" : isLine(col) ? "'" : ""}
+                      ref={(el) => {
+                        if (!inputsRef.current[row]) inputsRef.current[row] = Array(cols).fill(null);
+                        inputsRef.current[row][col] = el;
+                      }}
+                      onFocus={() => setCursorCol(col)}
+                      onChange={(e) => handleChange(e, row, col)}
+                      onKeyDown={(e) => handleKeyDown(e, row, col)}
+                    />
+                  ))}
+                </div>
               ))}
             </div>
-          ))}
 
-          <div style={{ marginTop: 50 }}>
-            <KeyboardComponent
-              onChar={(ch) => insertChar(ch)}
-              onBackspace={() => backspaceChar()}
-              onEnter={() => onEnterFromKeyboard()}
-              disabled={gameOver || lockedRows[currentRow]}
-              keyStates={keyStates}
-            />
+            <div className="keyboard-wrap">
+              <KeyboardComponent
+                onChar={(ch) => insertChar(ch)}
+                onBackspace={() => backspaceChar()}
+                onEnter={() => onEnterFromKeyboard()}
+                disabled={gameOver || lockedRows[currentRow]}
+                keyStates={keyStates}
+              />
+            </div>
+          </section>
+
+          <div className="chances-count">
+            <p><span>{currentRow + 1}</span>/ <span>{MAX_ATTEMPTS}</span></p>
           </div>
+
         </section>
 
         {helpOpen && (

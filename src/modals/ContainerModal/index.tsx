@@ -37,7 +37,7 @@ const ContainerModal = ({ handleCloseModal, handlePlayAgain, result, selectedWor
                                 A twisted reflection of Wordle, reborn within the Lands Between.</p>
 
                             <p>This trial surpasses even the mightiest of foes.
-                                To endure, one must wield knowledge beyond mortal bounds, more than <strong>99 Intelligence</strong>, shattering the very limits set by Elden Ring itself.</p>
+                                To endure, one must wield knowledge beyond mortal bounds, more than <strong>99 Intelligence</strong>, shattering the very limits set by Elden Ring itself. If you found a bug, it's not a bug, it's a feature that makes the game hard</p>
 
                             <p>Every word is drawn from the deep lore of the <a href='https://eldenring.fanapis.com/'>Elden Ring Fans API</a>: the names of bosses, relics, weapons, and legends scattered throughout the realm.</p>
 
@@ -55,12 +55,12 @@ const ContainerModal = ({ handleCloseModal, handlePlayAgain, result, selectedWor
                         <div className="about-game">
                             <h2>Help</h2>
 
-                            <p>Uncover the hidden word from the world of <strong>Elden Ring</strong>: bosses, items, weapons, or places.</p>
+                            <p>You got <strong>7 chances</strong> to uncover the hidden word from the world of <strong>Elden Ring</strong>: bosses, npcs, locations, items, weapons, or everything.</p>
 
                             <ul>
-                                <li>🟩 Correct letter & spot</li>
-                                <li>🟨 Letter exists, wrong place</li>
-                                <li>⬛ Letter not in word</li>
+                                <li><div></div> Correct letter & spot</li>
+                                <li><div></div> Letter exists, wrong place</li>
+                                <li><div></div> Letter not in word</li>
                             </ul>
 
                             <p>Beware: <br /><strong style={{ fontSize: "32px" }}>␣</strong> = space inside the word.
